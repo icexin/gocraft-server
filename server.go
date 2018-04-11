@@ -51,6 +51,7 @@ func (s *Server) handleConn(conn net.Conn) {
 	clientConn, err := sess.Open()
 	if err != nil {
 		log.Print(err)
+		return
 	}
 	session := NewSession(conn, clientConn)
 	s.sessions.Store(id, session)
